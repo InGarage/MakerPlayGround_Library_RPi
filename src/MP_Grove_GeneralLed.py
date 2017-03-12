@@ -1,4 +1,5 @@
 import time
+import grovepi
 from grovepi import *
 
 
@@ -8,7 +9,8 @@ class MP_GeneralLed:
 	def __init__(self,pin):
                 global led
                 led = pin
-		pinMode(led,"OUTPUT")
+               
+		grovepi.pinMode(led,"OUTPUT")
 		time.sleep(1)
 		
 
@@ -20,4 +22,4 @@ class MP_GeneralLed:
 		digitalWrite(led,0)
 
 	def dim(self,percentage):
-		grovepi.analogWrite(led,255 * percentage)
+		grovepi.analogWrite(led,int(255 * percentage))
