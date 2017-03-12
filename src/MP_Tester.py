@@ -1,4 +1,4 @@
-import MP_Grove_GeneralLed
+from MP_Grove_GeneralLed import *
 import time
 
 if __name__ == "__main__":		
