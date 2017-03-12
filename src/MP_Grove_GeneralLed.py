@@ -22,4 +22,4 @@ class MP_GeneralLed:
 		digitalWrite(led,0)
 
 	def dim(self,percentage):
-		grovepi.analogWrite(led,int(255 * percentage))
+		grovepi.analogWrite(led,int((255*percentage)/100))

@@ -1,10 +1,11 @@
-from MP_Grove_GeneralLed import *
+from MP_Grove_fourSevenSeg import *
 import time
 
 if __name__ == "__main__":		
-	m= MP_GeneralLed(5)
+	m= MP_FourSevenSeg(5)
 	while True:
-		m.on()	
+		m.show('A','c','b','0',1)	
 		time.sleep(1)
-		m.dim(0.3)
+		m.dim(30)
 		time.sleep(1)
+		m.off()
