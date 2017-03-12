@@ -1,16 +1,18 @@
-from MP_Grove_fourSevenSeg import *
+from MP_Grove_RGBLcd import *
 import time
 
 if __name__ == "__main__":		
-	m= MP_FourSevenSeg(5)
+	m= MP_RGBLcd()
 	while True:
-                m.dim(30)
-		m.show('1','c','b','0',1)	
 		time.sleep(1)
-		
+		m.show("Hello dude!")	
+		m.backlight_color("#123ABC")
 		time.sleep(1)
-		m.dim(90)
-		m.off()
+		m.backlight_off()
 		time.sleep(1)
-		m.show('','c','A','',0)	
+		m.show("Hello !")	
 		time.sleep(1)
+		setText("                                 ")
+		m.backlight_on()
+		time.sleep(1)
+	
