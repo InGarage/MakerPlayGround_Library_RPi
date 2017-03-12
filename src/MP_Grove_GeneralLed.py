@@ -1,4 +1,3 @@
-import time
 import grovepi
 from grovepi import *
 
@@ -11,7 +10,6 @@ class MP_GeneralLed:
                 led = pin
                
 		grovepi.pinMode(led,"OUTPUT")
-		time.sleep(1)
 		
 
 	def on(self):
