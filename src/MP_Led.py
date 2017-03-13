@@ -3,7 +3,7 @@ from grovepi import *
 
 
 
-class MP_GeneralLed:	
+class MP_Led:	
         
 	def __init__(self,pin):
                 global led
