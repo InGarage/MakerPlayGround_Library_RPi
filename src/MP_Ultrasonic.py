@@ -9,7 +9,6 @@ class MP_Ultrasonic:
 
 	def distance(self,opt,treshold,unit):
 		  try:
-        # Read sensor value from potentiometer
 			sensorRead = grovepi.ultrasonicRead(sensor)
 
 			if(opt=='>='):

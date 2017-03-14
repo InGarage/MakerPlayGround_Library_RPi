@@ -1,32 +1,29 @@
-
-
 import twitter
 import time
 import grovepi
 import math
 
-# Connections
 
+class MP_Twitter:		
+	def __init__(self):
+		global beSetup
+		global intro_str		
+		beSetup = 0
 
-intro_str = "Makerplaygorund"
+	def setup(self,consumer_k,consumer_s,access_token_k,access_token_s,intro_s):
+	
+		intro_str = intro_s
+		global api
+		api = twitter.Api(
+    consumer_key= consumer_k,
+    consumer_secret=consumer_s,
+    access_token_key=access_token_k,
+    access_token_secret=access_token_s
+    )				
+		beSetup = 1
 
-# Connect to Twitter
-api = twitter.Api(
-    consumer_key='6aJsA4Lf7pANIheZ0WVjqV8oW',
-    consumer_secret='3AsuqFYgaWozD0azSorkKojmETNO1x3uX63wP3HgUttlFN6YhL',
-    access_token_key='301425044-1hSnErgwxZ3lNHmgAkuwQs0AeTTad76Uy08JUJyD',
-    access_token_secret='dLzdelh5haqs7LdO4o9UJzuJErSC38BnzoEgMCt5BBMu8'
-    )
-while True:
-    # Error handling in case of problems communicating with the GrovePi
-    try:        
-        out_str = "Hello Twitter! I'm a bot in RaspPi." 
-        print (out_str)
-        api.PostUpdate(out_str)
-        time.sleep(30)
-    except IOError:
-        print("Error")
-    except KeyboardInterrupt:
-        exit()
-    except:
-        print("Duplicate Tweet or Twitter Refusal")
+	def tweet(self,text):
+		if beSetup ==1:
+			api.PostUpdate(text)
+		else:
+			print("Twitter is not setuped")
