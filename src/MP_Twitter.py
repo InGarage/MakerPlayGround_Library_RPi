@@ -20,10 +20,16 @@ class MP_Twitter:
     access_token_key=access_token_k,
     access_token_secret=access_token_s
     )				
-		beSetup = 1
+		
+		
 
 	def tweet(self,text):
-		if beSetup ==1:
-			api.PostUpdate(text)
-		else:
-			print("Twitter is not setuped")
+                        try:
+                                api.PostUpdate(text)
+                        except IOError:
+                                print("Error")
+                        except KeyboardInterrupt:
+                                exit()
+                        except:
+                                print("Duplicate Tweet or Twitter Refusal")
+		
